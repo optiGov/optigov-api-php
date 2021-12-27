@@ -14,7 +14,7 @@ composer require optigov/optigov-api-php
 Ein optiGov-Client kann über die `Client`-Klasse intantiiert werden. Dabei wird die Url des API-Endpunkts benötigt.
 
 ```php
-$optiGov = new \OptiGov\Client("https://optigov.de/api")
+$optiGov = new \OptiGov\Client("https://optigov.de/api");
 ```
 
 ### Abfragen
