@@ -1,0 +1,6 @@
+# Fragt nur den Namen einer Einrichtung ab
+query EinrichtungName($id:Int!){
+    einrichtung(id:$id){
+	    name
+    }
+}

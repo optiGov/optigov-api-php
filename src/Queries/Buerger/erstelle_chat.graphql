@@ -1,0 +1,7 @@
+# Erstellt einen neuen Chat
+mutation ErstelleChat ($chat:ChatInput){
+    erstelleChat(chat:$chat){
+        id
+        name
+    }
+}

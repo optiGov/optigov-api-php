@@ -1,0 +1,29 @@
+# Fragt alle Details zu einem Mitarbeiter ab
+query Mitarbeiter($id:Int!){
+    mitarbeiter(id:$id){
+        id
+        vorname
+        nachname
+        email
+        chat_anzeigen
+    	telefon
+    	telefon_mobil
+    	fax
+    	raum
+    	servicezeiten
+		dienstleistungen {
+			id
+			name
+		}
+		geerbte_dienstleistungen {
+			id
+			name
+		}
+    	einrichtungen{
+	    	id
+	    	name
+	    	email
+	    	telefon
+	    }
+    }
+}

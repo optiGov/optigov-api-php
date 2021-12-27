@@ -1,0 +1,6 @@
+# Stellt eine neuen Antragsanfrage
+mutation ErstelleAntragsanfrage($formular_id:Int!, $weiterleitung_url:String!, $parameter:[String!]!){
+  erstelleAntragsanfrage(formular_id: $formular_id, weiterleitung_url: $weiterleitung_url, parameter: $parameter){
+    url
+  }
+}

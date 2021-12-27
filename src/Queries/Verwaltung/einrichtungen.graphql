@@ -1,0 +1,10 @@
+# Fragt alle Einrichtungen einer Verwaltung ab
+query Einrichtungen($verwaltungsId:Int!){
+	verwaltung(id:$verwaltungsId){
+	    einrichtungen{
+			id
+		    name
+			favorit
+	    }
+    }
+}

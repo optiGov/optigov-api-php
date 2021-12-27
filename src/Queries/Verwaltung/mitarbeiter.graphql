@@ -1,0 +1,13 @@
+# Fragt alle Mitarbeiter einer Verwaltung ab
+query Mitarbeiter($verwaltungsId:Int!){
+	verwaltung(id:$verwaltungsId){
+	    mitarbeiter{
+	        id
+	        vorname
+			nachname
+	        email
+			telefon
+			chat_anzeigen
+	    }
+    }
+}

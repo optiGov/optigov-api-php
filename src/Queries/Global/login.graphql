@@ -1,0 +1,9 @@
+# Erstellt einen Login-Link für den Bürger
+mutation LoginBuerger($weiterleitung_url: String!){
+  loginBuerger(weiterleitung_url: $weiterleitung_url){
+    code
+    url
+  }
+}
+
+

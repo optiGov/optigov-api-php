@@ -1,0 +1,39 @@
+# Fragt alle Details einer Einrichtung ab
+query Einrichtung($id:Int!){
+    einrichtung(id:$id){
+		id
+	    name
+	    synonyme
+	    kurzbezeichnung
+	    beschreibung
+	    oeffnungszeiten
+	    telefon
+	    fax
+	    email
+	    webseite_url
+	    webseite_titel
+	    mitarbeiter{
+			id
+			vorname
+			nachname
+			email
+			telefon
+			telefonMobil
+			fax
+			chat_anzeigen
+	    }
+	    dienstleistungen {
+		    id
+			name
+	    }
+	    gebaeude {
+		    name
+		    strasse
+		    hausnummer
+		    plz
+		    ort
+		    latitude
+		    longitude
+	    }
+    }
+}

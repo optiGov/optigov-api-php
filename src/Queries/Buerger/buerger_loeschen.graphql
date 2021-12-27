@@ -1,0 +1,4 @@
+# Löscht alle Daten eines Bürgers
+mutation Buerger($id:Int!){
+    loescheBuerger(id:$id)
+}

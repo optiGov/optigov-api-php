@@ -1,0 +1,6 @@
+# ok with new php-graphql
+mutation nachrichtSenden($nachricht:NachrichtInput!){
+    erstelleNachricht(nachricht:$nachricht) {
+        id
+    }
+}

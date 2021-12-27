@@ -1,0 +1,7 @@
+/.idea
+/.vscode
+/vendor
+tests/bootstrap.php
+.phpunit.result.cache
+composer.lock
+npm-debug.log

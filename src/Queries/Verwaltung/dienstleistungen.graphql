@@ -1,0 +1,14 @@
+# Fragt alle Dienstleistungen einer Verwaltung ab
+query Dienstleistungen($verwaltungsId:Int!){
+	verwaltung(id:$verwaltungsId){
+		dienstleistungen{
+			id
+			name
+			kurzbeschreibung
+			favorit
+			dienstleistungskategorien {
+				id
+			}
+	    }
+	}
+}

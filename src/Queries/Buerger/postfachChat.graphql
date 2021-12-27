@@ -1,0 +1,40 @@
+# ok with new php-graphql
+query Postfach($id:Int!){
+	chat(id:$id) {
+		id
+		name
+		erstellt
+		nachrichten {
+			inhalt
+			erstellt
+			buerger {
+				vorname
+				nachname
+			}
+			mitarbeiter {
+				anrede{
+					name
+				}
+				vorname
+				nachname
+			}
+			dateien {
+				id
+				name
+				suffix
+			}
+		}
+		antrag {
+			formular {
+				titel
+			}
+		}
+		mitarbeiter {
+			anrede {
+				name
+			}
+			vorname
+			nachname
+		}
+	}
+}

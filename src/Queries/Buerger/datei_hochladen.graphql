@@ -1,0 +1,4 @@
+# Lädt eine Datei hoch
+mutation uploadDatei($name:String!, $bezeichner:String!){
+    uploadDatei(name:$name, bezeichner:$bezeichner)
+}

@@ -1,0 +1,50 @@
+# Fragt alle Daten einer Dienstleistung ab
+query Dienstleistung($id:Int!){
+    dienstleistung(id:$id){
+		id
+	    name
+	    kurzbeschreibung
+	    beschreibung
+	    unterlagen
+	    gebuehren
+	    webseite_url
+	    webseite_titel
+	    hinweise
+	    bearbeitungsdauer
+	    fristen
+	    amt_fachbereich
+	    voraussetzungen
+	    mitarbeiter{
+			id
+			vorname
+			nachname
+			email
+			telefon
+			telefonMobil
+			fax
+			chat_anzeigen
+	    }
+	    einrichtungen {
+        	id
+        	name
+			email
+			telefon
+		}
+	    dokumente{
+			name
+			erstellt
+			datei {
+				id
+				suffix
+				groesse
+			}
+	    }
+	    formulare{
+	      id
+	      titel
+	    }
+	    terminvorlage {
+		    id
+	    }
+    }
+}

@@ -1,0 +1,18 @@
+# ok with new php-graphql
+query Postfach($id:Int!){
+    buerger(id:$id) {
+		terminvereinbarungen {
+			id
+			dauer
+			status
+			dienstleistung {
+				name
+			}
+			mitarbeiter {
+				id
+				name
+			}
+			termin
+		}
+	}
+}

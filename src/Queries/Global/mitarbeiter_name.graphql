@@ -1,0 +1,6 @@
+# Fragt nur den Namen eines Mitarbeiters ab
+query MitarbeiterName($id:Int!){
+    mitarbeiter(id:$id){
+        name
+    }
+}
