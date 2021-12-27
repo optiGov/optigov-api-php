@@ -1,4 +1,4 @@
-# hubspot-api-php
+# optigov-api-php
 Für weitere Informationen siehe [optiGov API](https://entwickler.optigov.de).
 
 ## Installation
