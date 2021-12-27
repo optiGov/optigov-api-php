@@ -1,5 +1,5 @@
 # optigov-api-php
-Für weitere Informationen siehe [optiGov API](https://entwickler.optigov.de).
+Für weitere Informationen, siehe [optiGov API](https://entwickler.optigov.de).
 
 ## Installation
 
@@ -20,10 +20,10 @@ $optiGov = new \OptiGov\Client("https://optigov.de/api")
 ### Abfragen
 
 Die Abfragen innerhalb der Bibliothek teilen sich in sogenannte `Responsibilities` auf. 
-Diese enthalten verschiedene Verantwortlichekeiten - so ist z.B. die `GlobalResponsibilitiy` für alle allgemeinen, von einer Verwaltung losgelösten Anfragen zuständig. 
-Die `VerwaltungResponsibilitiy` handelt alle Abfragen bzgl. aller Einträge einer Verwaltung ab - und die `BuegerResponsibilitiy` übernimmt alle Funktionen, welche eine Bürgerauthorisierung benötigen.  
+Diese enthalten verschiedene Verantwortlichekeiten - so ist z.B. die `GlobalResponsibility` für alle allgemeinen, von einer Verwaltung losgelösten Anfragen zuständig. 
+Die `VerwaltungResponsibility` handelt alle Abfragen bzgl. aller Einträge einer Verwaltung ab - und die `BuergerResponsibility` übernimmt alle Funktionen, welche eine Bürgerauthorisierung benötigen.  
 
-#### Die GlobalResponsibilitiy
+#### Die GlobalResponsibility
 
 Eine Dienstleistung, oder nur ihren Namen abfragen:
 ```php
