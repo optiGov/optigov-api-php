@@ -2,6 +2,7 @@
 query Mitarbeiter($id:Int!){
     mitarbeiter(id:$id){
         id
+		name
         vorname
         nachname
         email
