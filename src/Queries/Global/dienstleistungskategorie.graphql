@@ -1,0 +1,13 @@
+# Fragt alle Daten einer Dienstleistungskategorie ab
+query Dienstleistungskategorie($id:Int!){
+	dienstleistungskategorie(id:$id){
+		id
+		name
+		dienstleistungen{
+			id
+			name
+			kurzbeschreibung
+			favorit
+		}
+	}
+}

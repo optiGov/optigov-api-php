@@ -63,6 +63,46 @@ class GlobalResponsibility extends Responsibility
      * @throws JSONException
      * @return array|null
      */
+    public function dienstleistungskategorie(int $id): array|null
+    {
+        return $this->handle($this->request()
+            ->setVariable("id", $id)
+            ->execute(
+                $this->files->get(__DIR__
+                    . "/../Queries/Global/dienstleistungskategorie.graphql"
+                )
+            )
+        )["dienstleistungskategorie"];
+    }
+
+    /**
+     * @param int $id
+     * @throws CurlException
+     * @throws GraphQLException
+     * @throws IOException
+     * @throws JSONException
+     * @return string|null
+     */
+    public function dienstleistungskategorieName(int $id): string|null
+    {
+        return $this->handle($this->request()
+            ->setVariable("id", $id)
+            ->execute(
+                $this->files->get(__DIR__
+                    . "/../Queries/Global/dienstleistungskategorie_name.graphql"
+                )
+            )
+        )["dienstleistungskategorie"]["name"];
+    }
+
+    /**
+     * @param int $id
+     * @throws CurlException
+     * @throws GraphQLException
+     * @throws IOException
+     * @throws JSONException
+     * @return array|null
+     */
     public function einrichtung(int $id): array|null
     {
         return $this->handle($this->request()

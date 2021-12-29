@@ -4,6 +4,7 @@ namespace OptiGov\Tests\Responsibilities;
 
 use Curfle\Routing\Route;
 use OptiGov\Client;
+use OptiGov\Exceptions\GraphQLException;
 use PHPUnit\Framework\TestCase;
 use function PHPUnit\Framework\assertNotEmpty;
 use function PHPUnit\Framework\assertNotNull;
@@ -24,6 +25,15 @@ class GlobalResponsibilityTest extends TestCase
     {
         assertNotEmpty($this->client->dienstleistung(1));
         assertNotNull($this->client->dienstleistungName(1));
+    }
+
+    /**
+     * Tests ->dienstleistungskategorie() ->dienstleistungskategorieName()
+     */
+    public function testDienstleistungskategorie()
+    {
+        assertNotEmpty($this->client->dienstleistungskategorie(1));
+        assertNotNull($this->client->dienstleistungskategorieName(1));
     }
 
     /**

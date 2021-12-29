@@ -1,0 +1,6 @@
+# Fragt nur den Namen einer Dienstleistungskategorie ab
+query DienstleistungskategorieName($id:Int!){
+    dienstleistungskategorie(id:$id){
+		name
+    }
+}
