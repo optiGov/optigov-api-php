@@ -3,6 +3,7 @@ query Mitarbeiter($verwaltungsId:Int!){
 	verwaltung(id:$verwaltungsId){
 	    mitarbeiter{
 	        id
+			name
 	        vorname
 			nachname
 	        email
