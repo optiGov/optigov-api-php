@@ -16,6 +16,7 @@ query Dienstleistung($id:Int!){
 	    voraussetzungen
 	    mitarbeiter{
 			id
+			name
 			vorname
 			nachname
 			email
@@ -23,6 +24,7 @@ query Dienstleistung($id:Int!){
 			telefonMobil
 			fax
 			chat_anzeigen
+			oeffentlich_anzeigen
 	    }
 	    einrichtungen {
         	id

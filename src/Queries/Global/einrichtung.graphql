@@ -14,6 +14,7 @@ query Einrichtung($id:Int!){
 	    webseite_titel
 	    mitarbeiter{
 			id
+			name
 			vorname
 			nachname
 			email
@@ -21,6 +22,7 @@ query Einrichtung($id:Int!){
 			telefonMobil
 			fax
 			chat_anzeigen
+			oeffentlich_anzeigen
 	    }
 	    dienstleistungen {
 		    id
