@@ -252,7 +252,7 @@ class BuergerResponsibility extends Responsibility
      * @throws JSONException
      * @throws JWTException
      */
-    public function erstelleChat(string $name, ?int $antrag_id = null, ?int $mitarbeiter_id = null): array
+    public function erstelleChat(string $name, ?int $mitarbeiter_id = null, ?int $antrag_id = null): array
     {
         $chatInput = [
             "name" => $name,
