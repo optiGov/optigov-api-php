@@ -3,6 +3,7 @@
 namespace OptiGov;
 
 use OptiGov\GraphQL\Request;
+use OptiGov\Responsibilities\BuergerResponsibility;
 use OptiGov\Responsibilities\GlobalResponsibility;
 use OptiGov\Responsibilities\VerwaltungResponsibility;
 
@@ -58,6 +59,15 @@ class Client
     public function verwaltung(int $id)
     {
         return new VerwaltungResponsibility($this, $id);
+    }
+
+    /**
+     * @param string $refresh_token
+     * @return BuergerResponsibility
+     */
+    public function buerger(string $refresh_token)
+    {
+        return new BuergerResponsibility($this, $refresh_token);
     }
 
     /**
