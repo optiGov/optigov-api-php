@@ -7,6 +7,7 @@ query Mitarbeiter($id:Int!){
         nachname
         email
         chat_anzeigen
+		oeffentlich_anzeigen
     	telefon
     	telefon_mobil
     	fax
