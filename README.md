@@ -45,7 +45,7 @@ $optiGov->mitarbeiterName($id);
 
 Einen Login-Flow für einen Bürger erzeugen:
 ```php
-$optiGov->loginBuerger($redirect_url);
+$optiGov->loginBuerger(SUCCESS_REDIRECT_URL);
 ```
 
 #### Die VerwaltungResponsibility
@@ -70,7 +70,63 @@ Alle Mitarbeiter abfragen:
 $optiGov->verwaltung($id)->alleMitarbeiter();
 ```
 
+#### Die BuergerResponsibility
+Alle Anträge eines Bürgers abfragen:
+```php
+$optiGov->buerger(REFRESH_TOKEN)->alleAntraege();
+```
 
+Alle Termine eines Bürgers abfragen:
+```php
+$optiGov->buerger(REFRESH_TOKEN)->alleTermine();
+```
+
+Alle Chats eines Bürgers abfragen:
+```php
+$optiGov->buerger(REFRESH_TOKEN)->alleChats();
+```
+
+Einen Chat eines Bürgers abfragen:
+```php
+$optiGov->buerger(REFRESH_TOKEN)->chat($id);
+```
+
+Alle Daten eines Bürgers abfragen:
+```php
+$optiGov->buerger(REFRESH_TOKEN)->daten();
+```
+
+Einen Antrag mit vorbefüllten Daten stellen:
+```php
+$optiGov->buerger(REFRESH_TOKEN)->stelleAntrag(
+    FORMULAR_ID,
+    SUCCESS_REDIRECT_URL,
+    [
+        "AS.Daten.Parkzone" => "Zone F",
+        "cancelUrl" => CANCEL_REDIRECT_URL,
+    ]
+);
+```
+
+Eine Datei hochladen:
+```php
+$optiGov->buerger(REFRESH_TOKEN)->dateiHochladen($pfad, $name, $bezeichner);
+```
+
+Alle Daten eines Bürgers löschen:
+```php
+$optiGov->buerger(REFRESH_TOKEN)->loescheBuerger();
+```
+
+Einen neuen Chat erstellen:
+```php
+$optiGov->buerger(REFRESH_TOKEN)->erstelleChat($name, $mitarbeiterId);
+```
+
+Eine neue Nachricht senden:
+```php
+$optiGov->buerger(REFRESH_TOKEN)->sendeNachricht($inhalt, $chatId, dateien: []);
+```
 ## Tests und Beteiligung
 
 ### Unit-Tests
