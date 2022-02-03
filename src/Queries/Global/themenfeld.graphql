@@ -1,0 +1,13 @@
+# Fragt alle Daten eines Themenfeldes ab
+query Themenfeld($id:Int!){
+	themenfeld(id:$id){
+		id
+		name
+		dienstleistungen{
+			id
+			leistungsbezeichnung
+			teaser
+			favorit
+		}
+	}
+}

@@ -28,12 +28,12 @@ class GlobalResponsibilityTest extends TestCase
     }
 
     /**
-     * Tests ->dienstleistungskategorie() ->dienstleistungskategorieName()
+     * Tests ->themenfeld() ->themenfeldName()
      */
-    public function testDienstleistungskategorie()
+    public function testThemenfeld()
     {
-        assertNotEmpty($this->client->dienstleistungskategorie(1));
-        assertNotNull($this->client->dienstleistungskategorieName(1));
+        assertNotEmpty($this->client->themenfeld(1));
+        assertNotNull($this->client->themenfeldName(1));
     }
 
     /**

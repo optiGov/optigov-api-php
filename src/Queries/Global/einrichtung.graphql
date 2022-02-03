@@ -37,5 +37,8 @@ query Einrichtung($id:Int!){
 		    latitude
 		    longitude
 	    }
+		einrichtungstyp{
+			name
+		}
     }
 }

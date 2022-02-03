@@ -25,15 +25,15 @@ class VerwaltungResponsibilityTest extends TestCase
     }
 
     /**
-     * Tests ->alleDienstleistungskategorien()
+     * Tests ->alleThemenfelder()
      */
-    public function testAlleDienstleistungskategorien()
+    public function testAlleThemenfelder()
     {
-        assertNotEmpty($this->client->verwaltung(1)->alleDienstleistungskategorien());
+        assertNotEmpty($this->client->verwaltung(1)->alleThemenfelder());
     }
 
     /**
-     * Tests ->alleDienstleistungskategorien()
+     * Tests ->alleEinrichtungen()
      */
     public function testAlleEinrichtungen()
     {
@@ -41,7 +41,7 @@ class VerwaltungResponsibilityTest extends TestCase
     }
 
     /**
-     * Tests ->alleDienstleistungskategorien()
+     * Tests ->alleMitarbeiter()
      */
     public function testAlleMitarbeiter()
     {

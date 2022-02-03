@@ -12,11 +12,7 @@ query Postfach($id:Int!){
 				nachname
 			}
 			mitarbeiter {
-				anrede{
-					name
-				}
-				vorname
-				nachname
+				name
 			}
 			dateien {
 				id

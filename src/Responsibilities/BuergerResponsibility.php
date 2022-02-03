@@ -20,7 +20,7 @@ class BuergerResponsibility extends Responsibility
     /**
      * @var string|null
      */
-    private ?string $access_token = null;
+    private ?string $acces_token = null;
 
     public function __construct(Client $client, string $refresh_token)
     {
@@ -56,6 +56,14 @@ class BuergerResponsibility extends Responsibility
             )
         )["aktualisiereToken"]["access_token"];
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAccessToken(): string
+    {
+        return $this->access_token;
     }
 
     /**
@@ -123,13 +131,13 @@ class BuergerResponsibility extends Responsibility
 
     /**
      * @param int $id
-     * @return array
+     * @return array|null
      * @throws CurlException
      * @throws GraphQLException
      * @throws IOException
      * @throws JSONException
      */
-    public function chat(int $id): array
+    public function chat(int $id): ?array
     {
         return $this->handle($this->request()
             ->setVariable("id", $id)
@@ -220,13 +228,13 @@ class BuergerResponsibility extends Responsibility
      * @param string $pfad
      * @param string $name
      * @param string $bezeichner
-     * @return bool
+     * @return int
      * @throws CurlException
      * @throws GraphQLException
      * @throws IOException
      * @throws JSONException
      */
-    public function dateiHochladen(string $pfad, string $name, string $bezeichner): bool
+    public function dateiHochladen(string $pfad, string $name, string $bezeichner): int
     {
         return $this->handle($this->request()
             ->setVariable("name", $name)

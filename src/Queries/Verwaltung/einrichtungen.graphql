@@ -5,6 +5,9 @@ query Einrichtungen($verwaltungsId:Int!){
 			id
 		    name
 			favorit
+			einrichtungstyp{
+				name
+			}
 	    }
     }
 }

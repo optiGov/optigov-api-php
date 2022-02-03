@@ -3,10 +3,11 @@ query Dienstleistungen($verwaltungsId:Int!){
 	verwaltung(id:$verwaltungsId){
 		dienstleistungen{
 			id
-			name
-			kurzbeschreibung
+			leistungsbezeichnung
+			teaser
 			favorit
-			dienstleistungskategorien {
+			oeffentlich_anzeigen
+			themenfelder {
 				id
 			}
 	    }

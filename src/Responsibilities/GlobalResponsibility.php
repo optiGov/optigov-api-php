@@ -52,7 +52,7 @@ class GlobalResponsibility extends Responsibility
                     . "/../Queries/Global/dienstleistung_name.graphql"
                 )
             )
-        )["dienstleistung"]["name"];
+        )["dienstleistung"]["leistungsbezeichnung"];
     }
 
     /**
@@ -63,16 +63,16 @@ class GlobalResponsibility extends Responsibility
      * @throws JSONException
      * @return array|null
      */
-    public function dienstleistungskategorie(int $id): array|null
+    public function themenfeld(int $id): array|null
     {
         return $this->handle($this->request()
             ->setVariable("id", $id)
             ->execute(
                 $this->files->get(__DIR__
-                    . "/../Queries/Global/dienstleistungskategorie.graphql"
+                    . "/../Queries/Global/themenfeld.graphql"
                 )
             )
-        )["dienstleistungskategorie"];
+        )["themenfeld"];
     }
 
     /**
@@ -83,16 +83,16 @@ class GlobalResponsibility extends Responsibility
      * @throws JSONException
      * @return string|null
      */
-    public function dienstleistungskategorieName(int $id): string|null
+    public function themenfeldName(int $id): string|null
     {
         return $this->handle($this->request()
             ->setVariable("id", $id)
             ->execute(
                 $this->files->get(__DIR__
-                    . "/../Queries/Global/dienstleistungskategorie_name.graphql"
+                    . "/../Queries/Global/themenfeld_name.graphql"
                 )
             )
-        )["dienstleistungskategorie"]["name"];
+        )["themenfeld"]["name"];
     }
 
     /**

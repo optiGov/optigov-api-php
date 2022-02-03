@@ -44,16 +44,16 @@ class VerwaltungResponsibility extends Responsibility
      * @throws JSONException
      * @throws CurlException
      */
-    public function alleDienstleistungskategorien(): array|null
+    public function alleThemenfelder(): array|null
     {
         return $this->handle($this->request()
             ->setVariable("verwaltungsId", $this->id)
             ->execute(
                 $this->files->get(__DIR__
-                    . "/../Queries/Verwaltung/dienstleistungskategorien.graphql"
+                    . "/../Queries/Verwaltung/themenfelder.graphql"
                 )
             )
-        )["verwaltung"]["dienstleistungskategorien"];
+        )["verwaltung"]["themenfelder"];
     }
 
     /**

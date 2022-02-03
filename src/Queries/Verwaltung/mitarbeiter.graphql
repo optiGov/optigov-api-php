@@ -10,6 +10,9 @@ query Mitarbeiter($verwaltungsId:Int!){
 			telefon
 			chat_anzeigen
 			oeffentlich_anzeigen
+			einrichtungen{
+				name
+			}
 	    }
     }
 }

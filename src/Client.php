@@ -10,8 +10,8 @@ use OptiGov\Responsibilities\VerwaltungResponsibility;
 /**
  * @method array dienstleistung(int $id)
  * @method string dienstleistungName(int $id)
- * @method string dienstleistungskategorie(int $id)
- * @method string dienstleistungskategorieName(int $id)
+ * @method string themenfeld(int $id)
+ * @method string themenfeldName(int $id)
  * @method array einrichtung(int $id)
  * @method string einrichtungName(int $id)
  * @method array loginBuerger(string $weiterleitung_url)

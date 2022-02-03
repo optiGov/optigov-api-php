@@ -46,7 +46,7 @@ class BuergerResponsibilityTest extends TestCase
      */
     public function testChat()
     {
-        assertNotNull($this->client->buerger(REFRESH_TOKEN)->chat(1));
+        assertNotNull($this->client->buerger(REFRESH_TOKEN)->chat(TEST_CHAT_ID));
     }
 
     /**

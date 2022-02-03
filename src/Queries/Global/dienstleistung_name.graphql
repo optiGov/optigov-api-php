@@ -1,6 +1,6 @@
 # Fragt nur den Namen einer Dienstleistung ab
 query DienstleistungName($id:Int!){
     dienstleistung(id:$id){
-		name
+		leistungsbezeichnung
     }
 }

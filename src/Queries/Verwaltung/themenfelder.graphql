@@ -1,0 +1,14 @@
+# Fragt alle Themenfelder einer Verwaltung ab
+query Themenfelder($verwaltungsId:Int!){
+	verwaltung(id:$verwaltungsId){
+		themenfelder{
+			id
+			name
+			dienstleistungen{
+				id
+				leistungsbezeichnung
+				favorit
+			}
+	    }
+	}
+}

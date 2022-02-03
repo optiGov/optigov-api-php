@@ -1,0 +1,6 @@
+# Fragt nur den Namen eines Themenfeldes ab
+query ThemenfeldName($id:Int!){
+    themenfeld(id:$id){
+		name
+    }
+}
