@@ -131,9 +131,14 @@ $optiGov->buerger(REFRESH_TOKEN)->sendeNachricht($inhalt, $chatId, dateien: []);
 
 ### Unit-Tests
 
-**Hinweis:** benötigt die Datei `tests/bootstrap.php`, welche die Konstante `BACKEND_URL` definiert. Z.B.:
+**Hinweis:** Die Unit-Tests benötigen die Datei `tests/bootstrap.php`, welche notwenige (folgende) Konstanten definiert:
 ```php
-const BACKEND_URL = "https://optigov.de/api";
+const BACKEND_URL = "https://..."; // API-Endpunkt
+const REFRESH_TOKEN = "..."; // Refresh-Token eines Bürgers
+const TEST_CHAT_ID = -1; // ID eines Chats, welcher dem Bürger gehört;
+const TEST_ANTRAG_FORMULAR_ID = -1; // ID eines Antrags, welcher im Namen der Bürgers gestellt werden soll
+const TEST_ANTRAG_WEITERLEITUNG_URL = "https://..."; // Ziel-URL für erfolgreiche Weiterleitung nach Antragdurchführung
+const TEST_ANTRAG_PARAMETER = []; // Parameter, welche dem Antrag übergeben werden sollen
 ```
 
 Ausführen aller Tests:
