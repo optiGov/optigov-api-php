@@ -55,9 +55,9 @@ Alle Dienstleistungen abfragen:
 $optiGov->verwaltung($id)->alleDienstleistungen();
 ```
 
-Alle Dienstleistungskategorien abfragen:
+Alle Themenfelder abfragen:
 ```php
-$optiGov->verwaltung($id)->alleDienstleistungskategorien();
+$optiGov->verwaltung($id)->alleThemenfelder();
 ```
 
 Alle Einrichtungen abfragen:
