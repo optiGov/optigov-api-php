@@ -135,7 +135,7 @@ $optiGov->buerger(REFRESH_TOKEN)->sendeNachricht($inhalt, $chatId, dateien: []);
 ```php
 const BACKEND_URL = "https://..."; // API-Endpunkt
 const REFRESH_TOKEN = "..."; // Refresh-Token eines Bürgers
-const TEST_CHAT_ID = -1; // ID eines Chats, welcher dem Bürger gehört;
+const TEST_CHAT_ID = -1; // ID eines Chats, welcher dem Bürger gehört
 const TEST_ANTRAG_FORMULAR_ID = -1; // ID eines Antrags, welcher im Namen der Bürgers gestellt werden soll
 const TEST_ANTRAG_WEITERLEITUNG_URL = "https://..."; // Ziel-URL für erfolgreiche Weiterleitung nach Antragdurchführung
 const TEST_ANTRAG_PARAMETER = []; // Parameter, welche dem Antrag übergeben werden sollen
