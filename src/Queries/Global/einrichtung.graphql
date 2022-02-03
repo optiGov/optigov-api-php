@@ -26,7 +26,7 @@ query Einrichtung($id:Int!){
 	    }
 	    dienstleistungen {
 		    id
-			name
+			leistungsbezeichnung
 	    }
 	    gebaeude {
 		    name

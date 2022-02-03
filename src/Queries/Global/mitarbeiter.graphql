@@ -15,7 +15,7 @@ query Mitarbeiter($id:Int!){
     	servicezeiten
 		dienstleistungen {
 			id
-			name
+			leistungsbezeichnung
 		}
 		geerbte_dienstleistungen {
 			id
