@@ -6,6 +6,7 @@ query Dienstleistung($id:Int!){
 	    teaser
 		kurztext
 	    volltext
+		rechtsgrundlagen
 	    unterlagen
 	    kosten
 	    webseite_url
@@ -14,6 +15,10 @@ query Dienstleistung($id:Int!){
 	    bearbeitungsdauer
 	    frist
 	    voraussetzungen
+		verfahrensablauf
+		weiterfuehrende_informationen
+		rechtsbehelf
+		begriffe_im_kontext
 	    mitarbeiter{
 			id
 			name
