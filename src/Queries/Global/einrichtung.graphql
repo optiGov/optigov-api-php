@@ -27,6 +27,7 @@ query Einrichtung($id:Int!){
 	    dienstleistungen {
 		    id
 			leistungsbezeichnung
+			oeffentlich_anzeigen
 	    }
 	    gebaeude {
 		    name
