@@ -14,7 +14,7 @@ abstract class Responsibility
     /**
      * @var Client
      */
-    private Client $client;
+    protected Client $client;
     protected FileReader $files;
 
     /**
@@ -43,11 +43,13 @@ abstract class Responsibility
      */
     protected function handle(Response $response): array|null
     {
-        if ($response->hasErrors())
+        if ($response->hasErrors()){
+            var_dump($response->errors());
             throw (new GraphQLException(count($response->errors())
                 . " GraphQL error(s) occured during execution. "
                 . "For more information see \$exception->getErrors()."))
                 ->setErrors($response->errors());
+        }
 
         return $response->data();
     }

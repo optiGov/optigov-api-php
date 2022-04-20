@@ -14,7 +14,8 @@ use OptiGov\Responsibilities\VerwaltungResponsibility;
  * @method string themenfeldName(int $id)
  * @method array einrichtung(int $id)
  * @method string einrichtungName(int $id)
- * @method array loginBuerger(string $weiterleitung_url)
+ * @method array oauthAuthorize(string $clientId, string $redirectUrl, string $scope = "buerger.identity")
+ * @method array oauthGetTokens(string $codeVerifier, string $code, string $clientId, string $redirectUrl)‚
  * @method array mitarbeiter(int $id)
  * @method string mitarbeiterName(int $id)
  */
@@ -23,23 +24,53 @@ class Client
     /**
      * @var string
      */
-    private string $url;
+    private string $apiEndpunkt;
+
+    /**
+     * @var string
+     */
+    private string $oauthAuthEndpunkt;
+
+    /**
+     * @var string
+     */
+    private string $oauthTokenEndpunkt;
 
 
     /**
-     * @param string $url
+     * @param string $apiEndpunkt
+     * @param string $oauthAuthEndpunkt
+     * @param string $oauthTokenEndpunkt
      */
-    public function __construct(string $url)
+    public function __construct(string $apiEndpunkt, string $oauthAuthEndpunkt, string $oauthTokenEndpunkt)
     {
-        $this->url = $url;
+        $this->apiEndpunkt = $apiEndpunkt;
+        $this->oauthAuthEndpunkt = $oauthAuthEndpunkt;
+        $this->oauthTokenEndpunkt = $oauthTokenEndpunkt;
     }
 
     /**
      * @return string
      */
-    public function getUrl(): string
+    public function getApiEndpunkt(): string
     {
-        return $this->url;
+        return $this->apiEndpunkt;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOauthAuthEndpunkt(): string
+    {
+        return $this->oauthAuthEndpunkt;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOauthTokenEndpunkt(): string
+    {
+        return $this->oauthTokenEndpunkt;
     }
 
     /**
@@ -49,7 +80,7 @@ class Client
      */
     public function request(): Request
     {
-        return new Request(Request::POST, $this->url);
+        return new Request(Request::POST, $this->apiEndpunkt);
     }
 
     /**

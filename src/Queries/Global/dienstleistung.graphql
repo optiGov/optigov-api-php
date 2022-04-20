@@ -19,6 +19,7 @@ query Dienstleistung($id:Int!){
 		weiterfuehrende_informationen
 		rechtsbehelf
 		begriffe_im_kontext
+		oeffentlich_anzeigen
 	    mitarbeiter{
 			id
 			name
@@ -26,7 +27,7 @@ query Dienstleistung($id:Int!){
 			nachname
 			email
 			telefon
-			telefonMobil
+			telefon_mobil
 			fax
 			chat_anzeigen
 			oeffentlich_anzeigen

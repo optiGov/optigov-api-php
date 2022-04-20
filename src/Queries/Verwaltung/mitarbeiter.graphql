@@ -9,6 +9,7 @@ query Mitarbeiter($verwaltungsId:Int!){
 	        email
 			telefon
 			chat_anzeigen
+			email_anzeigen
 			oeffentlich_anzeigen
 			einrichtungen{
 				name

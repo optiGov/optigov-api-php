@@ -1,45 +1,57 @@
 # Fragt alle Details einer Einrichtung ab
 query Einrichtung($id:Int!){
-    einrichtung(id:$id){
+	einrichtung(id:$id){
 		id
-	    name
-	    synonyme
-	    kurzbezeichnung
-	    beschreibung
-	    oeffnungszeiten
-	    telefon
-	    fax
-	    email
-	    webseite_url
-	    webseite_titel
-	    mitarbeiter{
+		name
+		synonyme
+		kurzbezeichnung
+		beschreibung
+		oeffnungszeiten
+		telefon
+		fax
+		email
+		webseite_url
+		webseite_titel
+		mitarbeiter{
+			...MitarbeiterFelder
+		}
+		leiter{
+			...MitarbeiterFelder
+		}
+		stellvertretende_leiter{
+			...MitarbeiterFelder
+		}
+		dienstleistungen {
 			id
-			name
-			vorname
-			nachname
-			email
-			telefon
-			telefonMobil
-			fax
-			chat_anzeigen
-			oeffentlich_anzeigen
-	    }
-	    dienstleistungen {
-		    id
 			leistungsbezeichnung
 			oeffentlich_anzeigen
-	    }
-	    gebaeude {
-		    name
-		    strasse
-		    hausnummer
-		    plz
-		    ort
-		    latitude
-		    longitude
-	    }
+		}
+		gebaeude {
+			name
+			strasse
+			hausnummer
+			plz
+			ort
+			latitude
+			longitude
+		}
 		einrichtungstyp{
 			name
 		}
-    }
+	}
+}
+
+
+fragment MitarbeiterFelder on Mitarbeiter {
+	id
+	name
+	vorname
+	nachname
+	email
+	telefon
+	telefon_mobil
+	fax
+	chat_anzeigen
+	email_anzeigen
+	oeffentlich_anzeigen
 }

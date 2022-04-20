@@ -1,7 +1,0 @@
-# Aktualisiert das Token-Paar des Bürgers
-mutation aktualisiereToken($refresh_token:ID!){
-    aktualisiereToken(refresh_token:$refresh_token){
-        access_token
-        refresh_token
-    }
-}

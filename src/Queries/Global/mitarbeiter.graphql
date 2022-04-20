@@ -7,6 +7,7 @@ query Mitarbeiter($id:Int!){
         nachname
         email
         chat_anzeigen
+		email_anzeigen
 		oeffentlich_anzeigen
     	telefon
     	telefon_mobil
@@ -16,10 +17,12 @@ query Mitarbeiter($id:Int!){
 		dienstleistungen {
 			id
 			leistungsbezeichnung
+			oeffentlich_anzeigen
 		}
 		geerbte_dienstleistungen {
 			id
 			name
+			oeffentlich_anzeigen
 		}
     	einrichtungen{
 	    	id
