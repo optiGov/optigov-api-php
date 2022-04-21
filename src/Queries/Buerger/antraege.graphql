@@ -1,12 +1,14 @@
 # Gibt alle Anträge eines Bürgers wieder
 query Postfach($id:Int!){
-    buerger(id:$id) {
-		antraege {
-			id
-			status
-			erstellt
-			formular {
-				titel
+    account(id:$id) {
+		buerger{
+			antraege {
+				id
+				status
+				erstellt
+				formular {
+					titel
+				}
 			}
 		}
 	}

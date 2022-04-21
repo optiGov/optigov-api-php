@@ -27,22 +27,22 @@ class Client
     private string $apiEndpunkt;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private string $oauthAuthEndpunkt;
+    private string|null $oauthAuthEndpunkt;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private string $oauthTokenEndpunkt;
+    private string|null $oauthTokenEndpunkt;
 
 
     /**
      * @param string $apiEndpunkt
-     * @param string $oauthAuthEndpunkt
-     * @param string $oauthTokenEndpunkt
+     * @param string|null $oauthAuthEndpunkt
+     * @param string|null $oauthTokenEndpunkt
      */
-    public function __construct(string $apiEndpunkt, string $oauthAuthEndpunkt, string $oauthTokenEndpunkt)
+    public function __construct(string $apiEndpunkt, string $oauthAuthEndpunkt = null, string $oauthTokenEndpunkt = null)
     {
         $this->apiEndpunkt = $apiEndpunkt;
         $this->oauthAuthEndpunkt = $oauthAuthEndpunkt;
@@ -93,12 +93,13 @@ class Client
     }
 
     /**
-     * @param string $refresh_token
+     * @param string $accessToken
+     * @param string $refreshToken
      * @return BuergerResponsibility
      */
-    public function buerger(string $refresh_token)
+    public function buerger(string $accessToken, string $refreshToken)
     {
-        return new BuergerResponsibility($this, $refresh_token);
+        return new BuergerResponsibility($this, $accessToken, $refreshToken);
     }
 
     /**

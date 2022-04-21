@@ -15,18 +15,18 @@ class BuergerResponsibility extends Responsibility
     /**
      * @var string
      */
-    private string $refresh_token;
+    private string $refreshToken;
 
     /**
      * @var string|null
      */
-    private ?string $acces_token = null;
+    private ?string $accessToken = null;
 
-    public function __construct(Client $client, string $refresh_token)
+    public function __construct(Client $client, string $accesToken, string $refreshToken)
     {
         parent::__construct($client);
-        $this->refresh_token = $refresh_token;
-        $this->refreshAccessToken();
+        $this->accessToken = $accesToken;
+        $this->refreshToken = $refreshToken;
     }
 
     /**
@@ -35,27 +35,41 @@ class BuergerResponsibility extends Responsibility
      */
     private function getId(): int
     {
-        return (int)JWT::decode($this->refresh_token)["sub"];
+        return (int)JWT::decode($this->accessToken)["sub"];
     }
 
     /**
      * @return $this
-     * @throws CurlException
-     * @throws GraphQLException
-     * @throws IOException
-     * @throws JSONException
      */
-    public function refreshAccessToken(): static
+    public function refreshTokens(string $clientId): static
     {
-        $this->access_token = $this->handle($this->request()
-            ->setVariable("refresh_token", $this->refresh_token)
-            ->execute(
-                $this->files->get(__DIR__
-                    . "/../Queries/Buerger/aktualisiere_token.graphql"
-                )
-            )
-        )["aktualisiereToken"]["access_token"];
-        return $this;
+        // create request
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, $this->client->getOauthTokenEndpunkt());
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query([
+            'grant_type' => 'refresh_token',
+            'refresh_token' => $this->refreshToken,
+            'client_id' => $clientId,
+        ]));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));
+
+        // receive server response
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+
+        // close request
+        curl_close($ch);
+
+        // get tokens
+        $tokens = json_decode($response, true);
+
+        $this->refreshToken = $tokens["access_token"];
+        $this->accessToken = $tokens["refresh_token‚"];
+
+        // return decoded tokens
+        return $tokens;
     }
 
     /**
@@ -63,7 +77,7 @@ class BuergerResponsibility extends Responsibility
      */
     public function getAccessToken(): string
     {
-        return $this->access_token;
+        return $this->accessToken;
     }
 
     /**
@@ -78,13 +92,13 @@ class BuergerResponsibility extends Responsibility
     {
         return $this->handle($this->request()
             ->setVariable("id", $this->getId())
-            ->setAuthorization($this->access_token)
+            ->setAuthorization($this->accessToken)
             ->execute(
                 $this->files->get(__DIR__
                     . "/../Queries/Buerger/antraege.graphql"
                 )
             )
-        )["buerger"]["antraege"];
+        )["account"]["buerger"]["antraege"];
     }
 
     /**
@@ -99,13 +113,13 @@ class BuergerResponsibility extends Responsibility
     {
         return $this->handle($this->request()
             ->setVariable("id", $this->getId())
-            ->setAuthorization($this->access_token)
+            ->setAuthorization($this->accessToken)
             ->execute(
                 $this->files->get(__DIR__
                     . "/../Queries/Buerger/chats.graphql"
                 )
             )
-        )["buerger"]["chats"];
+        )["account"]["buerger"]["chats"];
     }
 
     /**
@@ -120,13 +134,13 @@ class BuergerResponsibility extends Responsibility
     {
         return $this->handle($this->request()
             ->setVariable("id", $this->getId())
-            ->setAuthorization($this->access_token)
+            ->setAuthorization($this->accessToken)
             ->execute(
                 $this->files->get(__DIR__
                     . "/../Queries/Buerger/termine.graphql"
                 )
             )
-        )["buerger"]["terminvereinbarungen"];
+        )["account"]["buerger"]["terminvereinbarungen"];
     }
 
     /**
@@ -141,7 +155,7 @@ class BuergerResponsibility extends Responsibility
     {
         return $this->handle($this->request()
             ->setVariable("id", $id)
-            ->setAuthorization($this->access_token)
+            ->setAuthorization($this->accessToken)
             ->execute(
                 $this->files->get(__DIR__
                     . "/../Queries/Buerger/chat.graphql"
@@ -173,7 +187,7 @@ class BuergerResponsibility extends Responsibility
             ->setVariable("formular_id", $formular_id)
             ->setVariable("weiterleitung_url", $weiterleitung_url)
             ->setVariable("parameter", $formatted_params)
-            ->setAuthorization($this->access_token)
+            ->setAuthorization($this->accessToken)
             ->execute(
                 $this->files->get(__DIR__
                     . "/../Queries/Buerger/antrag_stellen.graphql"
@@ -194,13 +208,13 @@ class BuergerResponsibility extends Responsibility
     {
         return $this->handle($this->request()
             ->setVariable("id", $this->getId())
-            ->setAuthorization($this->access_token)
+            ->setAuthorization($this->accessToken)
             ->execute(
                 $this->files->get(__DIR__
-                    . "/../Queries/Buerger/buerger.graphql"
+                    . "/../Queries/Buerger/account.graphql"
                 )
             )
-        )["buerger"];
+        )["account"]["buerger"];
     }
 
     /**
@@ -215,7 +229,7 @@ class BuergerResponsibility extends Responsibility
     {
         return $this->handle($this->request()
             ->setVariable("id", $this->getId())
-            ->setAuthorization($this->access_token)
+            ->setAuthorization($this->accessToken)
             ->execute(
                 $this->files->get(__DIR__
                     . "/../Queries/Buerger/buerger_loeschen.graphql"
@@ -240,7 +254,7 @@ class BuergerResponsibility extends Responsibility
             ->setVariable("name", $name)
             ->setVariable("bezeichner", $bezeichner)
             ->addFile("file0", $pfad)
-            ->setAuthorization($this->access_token)
+            ->setAuthorization($this->accessToken)
             ->execute(
                 $this->files->get(__DIR__
                     . "/../Queries/Buerger/datei_hochladen.graphql"
@@ -271,7 +285,7 @@ class BuergerResponsibility extends Responsibility
 
         return $this->handle($this->request()
             ->setVariable("chat", $chatInput)
-            ->setAuthorization($this->access_token)
+            ->setAuthorization($this->accessToken)
             ->execute(
                 $this->files->get(__DIR__
                     . "/../Queries/Buerger/erstelle_chat.graphql"
@@ -301,7 +315,7 @@ class BuergerResponsibility extends Responsibility
 
         return $this->handle($this->request()
             ->setVariable("nachricht", $nachrichtInput)
-            ->setAuthorization($this->access_token)
+            ->setAuthorization($this->accessToken)
             ->execute(
                 $this->files->get(__DIR__
                     . "/../Queries/Buerger/sende_nachricht.graphql"

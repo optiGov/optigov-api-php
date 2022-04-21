@@ -1,0 +1,20 @@
+# Fragt alle persönlichen Daten eines Bürgers innerhalb eines Accounts ab
+query Account($id:Int!){
+    account(id:$id){
+        buerger{
+            id
+            anrede
+            vorname
+            nachname
+            email
+            strasse
+            hausnummer
+            plz
+            ort
+            anschrift
+            geburtsdatum
+            aktualisiert
+            erstellt
+        }
+    }
+}

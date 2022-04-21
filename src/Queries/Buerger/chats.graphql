@@ -1,22 +1,24 @@
 # ok with new php-graphql
 query Postfach($id:Int!){
-    buerger(id:$id) {
-		chats {
-			id
-			name
-			erstellt
-			antrag {
-				formular {
-					titel
-				}
-			}
-			mitarbeiter {
-				anrede {
-					name
-				}
-				vorname
-				nachname
-			}
-		}
-	}
+    account(id:$id) {
+        buerger{
+            chats {
+                id
+                name
+                erstellt
+                antrag {
+                    formular {
+                        titel
+                    }
+                }
+                mitarbeiter {
+                    anrede {
+                        name
+                    }
+                    vorname
+                    nachname
+                }
+            }
+        }
+    }
 }
