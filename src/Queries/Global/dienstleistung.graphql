@@ -30,6 +30,7 @@ query Dienstleistung($id:Int!){
 			telefon_mobil
 			fax
 			chat_anzeigen
+			email_anzeigen
 			oeffentlich_anzeigen
 	    }
 	    einrichtungen {

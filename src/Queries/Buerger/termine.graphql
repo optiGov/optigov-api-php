@@ -7,7 +7,7 @@ query Postfach($id:Int!){
 				dauer
 				status
 				dienstleistung {
-					name
+					leistungsbezeichnung
 				}
 				mitarbeiter {
 					id

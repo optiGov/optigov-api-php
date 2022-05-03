@@ -9,6 +9,15 @@ query Postfach($id:Int!){
 				formular {
 					titel
 				}
+				dateien {
+					id
+					name
+					datei
+					suffix
+					erstellt
+					bearbeitet
+					groesse
+				}
 			}
 		}
 	}

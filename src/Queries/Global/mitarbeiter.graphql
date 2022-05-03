@@ -21,7 +21,7 @@ query Mitarbeiter($id:Int!){
 		}
 		geerbte_dienstleistungen {
 			id
-			name
+			leistungsbezeichnung
 			oeffentlich_anzeigen
 		}
     	einrichtungen{
