@@ -184,7 +184,7 @@ class GlobalResponsibility extends Responsibility
      * @return array
      * @throws Exception
      */
-    public function oauthAuthorize(string $clientId, string $redirectUrl, string $scope = "account.identity buerger.identity"): array
+    public function oauthAuthorize(string $clientId, string $redirectUrl, string $scope = "account.identity buerger.identity chat"): array
     {
         // generate a random state for later verification
         $state = bin2hex(random_bytes(20));

@@ -87,19 +87,20 @@ class Client
      * @param int $id
      * @return VerwaltungResponsibility
      */
-    public function verwaltung(int $id)
+    public function verwaltung(int $id): VerwaltungResponsibility
     {
         return new VerwaltungResponsibility($this, $id);
     }
 
     /**
-     * @param string $accessToken
+     * @param string|null $accessToken
      * @param string $refreshToken
+     * @param int $clientId
      * @return BuergerResponsibility
      */
-    public function buerger(string $accessToken, string $refreshToken)
+    public function buerger(?string $accessToken, string $refreshToken, int $clientId): BuergerResponsibility
     {
-        return new BuergerResponsibility($this, $accessToken, $refreshToken);
+        return new BuergerResponsibility($this, $accessToken, $refreshToken, $clientId);
     }
 
     /**
