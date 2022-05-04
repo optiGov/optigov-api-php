@@ -32,6 +32,8 @@ query Einrichtung($id:Int!){
 			hausnummer
 			plz
 			ort
+			beschreibung
+			verkehrsanbindung
 			latitude
 			longitude
 		}
