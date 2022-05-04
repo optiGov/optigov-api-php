@@ -2,33 +2,42 @@
 query Mitarbeiter($id:Int!){
     mitarbeiter(id:$id){
         id
-		name
+        name
         vorname
         nachname
         email
         chat_anzeigen
-		email_anzeigen
-		oeffentlich_anzeigen
-    	telefon
-    	telefon_mobil
-    	fax
-    	raum
-    	servicezeiten
-		dienstleistungen {
-			id
-			leistungsbezeichnung
-			oeffentlich_anzeigen
-		}
-		geerbte_dienstleistungen {
-			id
-			leistungsbezeichnung
-			oeffentlich_anzeigen
-		}
-    	einrichtungen{
-	    	id
-	    	name
-	    	email
-	    	telefon
-	    }
+        email_anzeigen
+        oeffentlich_anzeigen
+        telefon
+        telefon_mobil
+        fax
+        raum
+        servicezeiten
+        dienstleistungen {
+            id
+            leistungsbezeichnung
+            oeffentlich_anzeigen
+        }
+        geerbte_dienstleistungen {
+            id
+            leistungsbezeichnung
+            oeffentlich_anzeigen
+        }
+        einrichtungen{
+            id
+            name
+            email
+            telefon
+        }
+        gebaeude {
+            name
+            strasse
+            hausnummer
+            plz
+            ort
+            latitude
+			longitude
+        }
     }
 }
