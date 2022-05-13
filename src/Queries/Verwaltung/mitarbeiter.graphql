@@ -14,6 +14,12 @@ query Mitarbeiter($verwaltungsId:Int!){
 			einrichtungen{
 				name
 			}
+			geleitete_einrichtungen{
+				name
+			}
+			stellvertretend_geleitete_einrichtungen{
+				name
+			}
 	    }
     }
 }
