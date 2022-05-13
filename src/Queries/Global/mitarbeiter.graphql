@@ -30,6 +30,18 @@ query Mitarbeiter($id:Int!){
             email
             telefon
         }
+        geleitete_einrichtungen{
+            id
+            name
+            email
+            telefon
+        }
+        stellvertretend_geleitete_einrichtungen{
+            id
+            name
+            email
+            telefon
+        }
         gebaeude {
             name
             strasse
