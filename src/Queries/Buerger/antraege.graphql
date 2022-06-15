@@ -12,7 +12,6 @@ query Postfach($id:Int!){
 				dateien {
 					id
 					name
-					datei
 					suffix
 					erstellt
 					bearbeitet
