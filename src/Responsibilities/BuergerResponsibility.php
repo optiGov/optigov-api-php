@@ -301,7 +301,7 @@ class BuergerResponsibility extends Responsibility
      * @throws IOException
      * @throws JSONException
      */
-    public function dateiHochladen(string $pfad, string $name, string $bezeichner): int
+    public function dateiHochladen(string $pfad, string $name, string $bezeichner): ?int
     {
         return $this->handle($this->request()
             ->setVariable("name", $name)
