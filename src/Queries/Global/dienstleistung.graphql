@@ -42,6 +42,7 @@ query Dienstleistung($id:Int!){
 	    dokumente{
 			name
 			erstellt
+			bearbeitet
 			datei {
 				id
 				suffix
